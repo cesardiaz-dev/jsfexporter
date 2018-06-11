@@ -19,9 +19,9 @@
  */
 package com.lapis.jsfexporter.pdf;
 
+import com.itextpdf.text.Document;
 import com.lapis.jsfexporter.api.IExportType;
 import com.lapis.jsfexporter.spi.IExportTypeFactory;
-import com.lowagie.text.Document;
 
 public class PDFExportTypeFactory implements IExportTypeFactory<Document, Void, Integer> {
 

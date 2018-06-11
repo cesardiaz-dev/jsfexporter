@@ -16,49 +16,49 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   #L%
-  -->
+-->
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:l="http://www.lapis.com/jsf/exporter"
-	template="../template.xhtml">
-	<ui:define name="content">
-		<h:form>
-			<p:commandButton value="Export CSV" ajax="false">
-				<l:dataExporter source="grid" fileType="csv" fileName="grid"/>
-			</p:commandButton>
-			<p:commandButton value="Export XML" ajax="false">
-				<l:dataExporter source="grid" fileType="xml" fileName="grid"/>
-			</p:commandButton>
-			<p:commandButton value="Export PDF" ajax="false">
-				<l:dataExporter source="grid" fileType="pdf" fileName="grid"/>
-			</p:commandButton>
-			<p:commandButton value="Export XLSX" ajax="false">
-				<l:dataExporter source="grid" fileType="excel" fileName="grid"/>
-			</p:commandButton>
-		
-			<h:panelGrid id="grid" columns="3">
-				<h:commandLink value="h:commandLink with no children" />
-				<h:commandLink>
-					<h:outputText value="h:commandLink with h:outputText" />
-				</h:commandLink>
-				<p:commandLink value="p:commandLink"/>
-				
-				<h:outputFormat value="This is a {0} of {1}">
-					<f:param value="test"/>
-					<f:param value="h:outputFormat"/>
-				</h:outputFormat>
-				<h:selectOneMenu value="#{panelGridBean.selectedChoice}">
-					<f:selectItems value="#{panelGridBean.selectOneChoices}" var="choice" itemLabel="#{choice.label}"/>
-				</h:selectOneMenu>
-				<p:commandButton value="p:commandButton"/>
-				
-				<a4j:commandButton value="a4j:commandButton"/>
-				<a4j:commandLink value="a4j:commandLink"/>
-			</h:panelGrid>
-		</h:form>
-	</ui:define>
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:l="http://www.lapis.com/jsf/exporter"
+                template="../template.xhtml">
+    <ui:define name="content">
+        <h:form>
+            <p:commandButton value="Export CSV" ajax="false">
+                <l:dataExporter source="grid" fileType="csv" fileName="grid"/>
+            </p:commandButton>
+            <p:commandButton value="Export XML" ajax="false">
+                <l:dataExporter source="grid" fileType="xml" fileName="grid"/>
+            </p:commandButton>
+            <p:commandButton value="Export PDF" ajax="false">
+                <l:dataExporter source="grid" fileType="pdf" fileName="grid"/>
+            </p:commandButton>
+            <p:commandButton value="Export XLSX" ajax="false">
+                <l:dataExporter source="grid" fileType="excel" fileName="grid"/>
+            </p:commandButton>
+
+            <h:panelGrid id="grid" columns="3">
+                <h:commandLink value="h:commandLink with no children" />
+                <h:commandLink>
+                    <h:outputText value="h:commandLink with h:outputText" />
+                </h:commandLink>
+                <p:commandLink value="p:commandLink"/>
+
+                <h:outputFormat value="This is a {0} of {1}">
+                    <f:param value="test"/>
+                    <f:param value="h:outputFormat"/>
+                </h:outputFormat>
+                <h:selectOneMenu value="#{panelGridBean.selectedChoice}">
+                    <f:selectItems value="#{panelGridBean.selectOneChoices}" var="choice" itemLabel="#{choice.label}"/>
+                </h:selectOneMenu>
+                <p:commandButton value="p:commandButton"/>
+
+                <a4j:commandButton value="a4j:commandButton"/>
+                <a4j:commandLink value="a4j:commandLink"/>
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
 </ui:composition>

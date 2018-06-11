@@ -11,64 +11,64 @@
   
        http://www.apache.org/licenses/LICENSE-2.0
   
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-  #L%
-  -->
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+#L%
+-->
+<facelet-taglib version="2.1"
+                xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_1.xsd">
 
-<facelet-taglib version="2.0"
-	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facelettaglibrary_2_0.xsd">
+    <namespace>http://www.lapis.com/jsf/exporter</namespace>
 
-	<namespace>http://www.lapis.com/jsf/exporter</namespace>
-
-	<tag>
-		<tag-name>dataExporter</tag-name>
-		<handler-class>com.lapis.jsfexporter.DataExporterTagHandler</handler-class>
-		<attribute>
-			<description>JSF ID of the component to be exported.</description>
-			<name>source</name>
-			<required>true</required>
-			<type>java.lang.String</type>
-		</attribute>
-		<attribute>
-			<description>Source-specific configuration options.</description>
-			<name>sourceOptions</name>
-			<required>false</required>
-			<type>java.lang.Object</type>
-		</attribute>
-		<attribute>
-			<description>Type of the exported file.</description>
-			<name>fileType</name>
-			<required>true</required>
-			<type>java.lang.String</type>
-		</attribute>
-		<attribute>
-			<description>Filename of the generated export file.</description>
-			<name>fileName</name>
-			<required>true</required>
-			<type>java.lang.String</type>
-		</attribute>
-		<attribute>
-			<description>Filetype-specific configuration options.</description>
-			<name>fileOptions</name>
-			<required>false</required>
-			<type>java.lang.Object</type>
-		</attribute>
-		<attribute>
-			<description>PreProcessor for the exported document.</description>
-			<name>preProcessor</name>
-			<required>false</required>
-			<type>javax.el.MethodExpression</type>
-		</attribute>
-		<attribute>
-			<description>PostProcessor for the exported document.</description>
-			<name>postProcessor</name>
-			<required>false</required>
-			<type>javax.el.MethodExpression</type>
-		</attribute>
-	</tag>
+    <tag>
+        <tag-name>dataExporter</tag-name>
+        <handler-class>com.lapis.jsfexporter.DataExporterTagHandler</handler-class>
+        <attribute>
+            <description>JSF ID of the component to be exported.</description>
+            <name>source</name>
+            <required>true</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>Source-specific configuration options.</description>
+            <name>sourceOptions</name>
+            <required>false</required>
+            <type>java.lang.Object</type>
+        </attribute>
+        <attribute>
+            <description>Type of the exported file.</description>
+            <name>fileType</name>
+            <required>true</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>Filename of the generated export file.</description>
+            <name>fileName</name>
+            <required>true</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>Filetype-specific configuration options.</description>
+            <name>fileOptions</name>
+            <required>false</required>
+            <type>java.lang.Object</type>
+        </attribute>
+        <attribute>
+            <description>PreProcessor for the exported document.</description>
+            <name>preProcessor</name>
+            <required>false</required>
+            <type>javax.el.MethodExpression</type>
+        </attribute>
+        <attribute>
+            <description>PostProcessor for the exported document.</description>
+            <name>postProcessor</name>
+            <required>false</required>
+            <type>javax.el.MethodExpression</type>
+        </attribute>
+    </tag>
 </facelet-taglib>
