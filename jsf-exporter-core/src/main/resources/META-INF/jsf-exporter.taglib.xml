@@ -18,10 +18,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 #L%
 -->
-<facelet-taglib version="2.1"
+<facelet-taglib version="2.2"
                 xmlns="http://xmlns.jcp.org/xml/ns/javaee"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_1.xsd">
+                xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd">
 
     <namespace>http://www.lapis.com/jsf/exporter</namespace>
 

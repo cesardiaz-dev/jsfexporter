@@ -37,8 +37,8 @@ public enum ExcelFileFormat {
 		}
 	};
 	
-	private String fileExtension;
-	private String mimeType;
+	private final String fileExtension;
+	private final String mimeType;
 	
 	private ExcelFileFormat(String fileExtension, String mimeType) {
 		this.fileExtension = fileExtension;

@@ -57,6 +57,7 @@
         <module>../export-source-richfaces</module>
         <module>../export-type-csv</module>
         <module>../export-type-excel</module>
+        <module>../export-type-word</module>
         <module>../export-type-pdf</module>
         <module>../export-type-xml</module>
         <module>../jsf-exporter-test</module>
@@ -87,6 +88,11 @@
             <dependency>
                 <groupId>com.lapis.jsfexporter</groupId>
                 <artifactId>export-type-excel</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.lapis.jsfexporter</groupId>
+                <artifactId>export-type-word</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
