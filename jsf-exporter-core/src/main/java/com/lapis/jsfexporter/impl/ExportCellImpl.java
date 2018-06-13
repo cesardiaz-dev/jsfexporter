@@ -19,38 +19,41 @@
  */
 package com.lapis.jsfexporter.impl;
 
-import java.util.List;
-
 import com.lapis.jsfexporter.api.IExportCell;
+import java.util.List;
 
 public class ExportCellImpl implements IExportCell {
 
-	private List<String> name;
-	private String value;
-	private int columnSpanCount;
-	private int rowSpanCount;
-	
-	public ExportCellImpl(List<String> name, String value, int columnSpanCount, int rowSpanCount) {
-		this.name = name;
-		this.value = value;
-		this.columnSpanCount = columnSpanCount;
-		this.rowSpanCount = rowSpanCount;
-	}
+    private final List<String> name;
+    private final String value;
+    private final int columnSpanCount;
+    private final int rowSpanCount;
 
-	public List<String> getName() {
-		return name;
-	}
+    public ExportCellImpl(List<String> name, String value, int columnSpanCount, int rowSpanCount) {
+        this.name = name;
+        this.value = value;
+        this.columnSpanCount = columnSpanCount;
+        this.rowSpanCount = rowSpanCount;
+    }
 
-	public String getValue() {
-		return value;
-	}
+    @Override
+    public List<String> getName() {
+        return name;
+    }
 
-	public int getColumnSpanCount() {
-		return columnSpanCount;
-	}
+    @Override
+    public String getValue() {
+        return value;
+    }
 
-	public int getRowSpanCount() {
-		return rowSpanCount;
-	}
-	
+    @Override
+    public int getColumnSpanCount() {
+        return columnSpanCount;
+    }
+
+    @Override
+    public int getRowSpanCount() {
+        return rowSpanCount;
+    }
+
 }

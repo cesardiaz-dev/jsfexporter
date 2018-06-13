@@ -24,35 +24,35 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public enum ExcelFileFormat {
-	XLS("xls", "application/vnd.ms-excel") {
-		@Override
-		public Workbook createNewWorkbook() {
-			return new HSSFWorkbook();
-		}
-	},
-	XLSX("xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
-		@Override
-		public Workbook createNewWorkbook() {
-			return new XSSFWorkbook();
-		}
-	};
-	
-	private final String fileExtension;
-	private final String mimeType;
-	
-	private ExcelFileFormat(String fileExtension, String mimeType) {
-		this.fileExtension = fileExtension;
-		this.mimeType = mimeType;
-	}
+    XLS("xls", "application/vnd.ms-excel") {
+        @Override
+        public Workbook createNewWorkbook() {
+            return new HSSFWorkbook();
+        }
+    },
+    XLSX("xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
+        @Override
+        public Workbook createNewWorkbook() {
+            return new XSSFWorkbook();
+        }
+    };
 
-	public String getFileExtension() {
-		return fileExtension;
-	}
+    private final String fileExtension;
+    private final String mimeType;
 
-	public String getMimeType() {
-		return mimeType;
-	}
-	
-	public abstract Workbook createNewWorkbook();
-	
+    private ExcelFileFormat(String fileExtension, String mimeType) {
+        this.fileExtension = fileExtension;
+        this.mimeType = mimeType;
+    }
+
+    public String getFileExtension() {
+        return fileExtension;
+    }
+
+    public String getMimeType() {
+        return mimeType;
+    }
+
+    public abstract Workbook createNewWorkbook();
+
 }

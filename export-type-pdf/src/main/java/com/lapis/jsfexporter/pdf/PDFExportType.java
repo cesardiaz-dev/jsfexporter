@@ -34,75 +34,74 @@ import com.lapis.jsfexporter.api.IExportType;
 import java.io.ByteArrayOutputStream;
 import javax.faces.context.ExternalContext;
 
-
 public class PDFExportType implements IExportType<Document, Void, Integer> {
 
-	private Document document;
-	private PdfPTable table;
-	private Font font;
-	private int rowCount;
-	private ByteArrayOutputStream buffer;
-	
-	public PDFExportType() {
-		document = new Document();
-		font = FontFactory.getFont("fonts/DroidSansFallbackFull.ttf", BaseFont.IDENTITY_H, true);
-		buffer = new ByteArrayOutputStream();
-		try {
-			PdfWriter.getInstance(document, buffer);
-		} catch (DocumentException e) {
-			throw new RuntimeException(e);
-		}
-	}
-	
-	@Override
-	public Document getContext() {
-		return document;
-	}
-	
-	@Override
-	public void beginExport(int columnCount) {
-		table = new PdfPTable(columnCount);
-		if (!document.isOpen()) {
-			document.open();
-		}
-	}
+    private Document document;
+    private PdfPTable table;
+    private Font font;
+    private int rowCount;
+    private ByteArrayOutputStream buffer;
 
-	@Override
-	public Integer exportRow(IExportRow row) {
-		for (IExportCell cell : row.getCells()) {
-			PdfPCell pdfCell = new PdfPCell();
-			pdfCell.setColspan(cell.getColumnSpanCount());
-			pdfCell.setRowspan(cell.getRowSpanCount());
-			pdfCell.setPhrase(new Phrase(cell.getValue(), font));
-			table.addCell(pdfCell);
-		}
-		
-		return rowCount++;
-	}
+    public PDFExportType() {
+        document = new Document();
+        font = FontFactory.getFont("fonts/DroidSansFallbackFull.ttf", BaseFont.IDENTITY_H, true);
+        buffer = new ByteArrayOutputStream();
+        try {
+            PdfWriter.getInstance(document, buffer);
+        } catch (DocumentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	@Override
-	public void endExport() {
-		try {
-			document.add(table);
-		} catch (DocumentException e) {
-			throw new RuntimeException(e);
-		}
-	}
-	
-	@Override
-	public void writeExport(ExternalContext externalContext) throws Exception {
-		document.close();
-		buffer.writeTo(externalContext.getResponseOutputStream());
-	}
-	
-	@Override
-	public String getContentType() {
-		return "application/pdf";
-	}
+    @Override
+    public Document getContext() {
+        return document;
+    }
 
-	@Override
-	public String getFileExtension() {
-		return "pdf";
-	}
+    @Override
+    public void beginExport(int columnCount) {
+        table = new PdfPTable(columnCount);
+        if (!document.isOpen()) {
+            document.open();
+        }
+    }
+
+    @Override
+    public Integer exportRow(IExportRow row) {
+        for (IExportCell cell : row.getCells()) {
+            PdfPCell pdfCell = new PdfPCell();
+            pdfCell.setColspan(cell.getColumnSpanCount());
+            pdfCell.setRowspan(cell.getRowSpanCount());
+            pdfCell.setPhrase(new Phrase(cell.getValue(), font));
+            table.addCell(pdfCell);
+        }
+
+        return rowCount++;
+    }
+
+    @Override
+    public void endExport() {
+        try {
+            document.add(table);
+        } catch (DocumentException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void writeExport(ExternalContext externalContext) throws Exception {
+        document.close();
+        buffer.writeTo(externalContext.getResponseOutputStream());
+    }
+
+    @Override
+    public String getContentType() {
+        return "application/pdf";
+    }
+
+    @Override
+    public String getFileExtension() {
+        return "pdf";
+    }
 
 }

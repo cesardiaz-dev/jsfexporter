@@ -31,9 +31,9 @@ import org.apache.poi.ss.util.CellRangeAddress;
 
 public class ExcelExportType extends AbstractExportType<Workbook, ExcelExportOptions, Row> {
 
-    private ExcelExportOptions configOptions;
-    private Workbook workbook;
-    private Sheet sheet;
+    private final ExcelExportOptions configOptions;
+    private final Workbook workbook;
+    private final Sheet sheet;
     private int rowCount;
 
     public ExcelExportType(ExcelExportOptions configOptions) {

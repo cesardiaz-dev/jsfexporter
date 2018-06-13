@@ -19,39 +19,37 @@
  */
 package com.lapis.jsfexporter.impl.value;
 
+import com.lapis.jsfexporter.spi.IValueFormatter;
 import javax.faces.component.UISelectOne;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
-
 import org.omnifaces.util.selectitems.SelectItemsCollector;
-
-import com.lapis.jsfexporter.spi.IValueFormatter;
 
 public class SelectOneFormatter implements IValueFormatter<UISelectOne> {
 
-	@Override
-	public Class<UISelectOne> getSupportedClass() {
-		return UISelectOne.class;
-	}
+    @Override
+    public Class<UISelectOne> getSupportedClass() {
+        return UISelectOne.class;
+    }
 
-	@Override
-	public int getPrecedence() {
-		return 1000;
-	}
+    @Override
+    public int getPrecedence() {
+        return 1000;
+    }
 
-	@Override
-	public String formatValue(FacesContext context, UISelectOne component) {
-		for (SelectItem item : SelectItemsCollector.collectFromParent(context, component)) {
-			if (item.getValue() == null) {
-				if (component.getValue() == null) {
-					return item.getLabel();
-				}
-			} else if (item.getValue().equals(component.getValue())) {
-				return item.getLabel();
-			}
-		}
-		
-		throw new IllegalArgumentException("Could not find any SelectItem with a value equal to the component's value");
-	}
+    @Override
+    public String formatValue(FacesContext context, UISelectOne component) {
+        for (SelectItem item : SelectItemsCollector.collectFromParent(context, component)) {
+            if (item.getValue() == null) {
+                if (component.getValue() == null) {
+                    return item.getLabel();
+                }
+            } else if (item.getValue().equals(component.getValue())) {
+                return item.getLabel();
+            }
+        }
+
+        throw new IllegalArgumentException("Could not find any SelectItem with a value equal to the component's value");
+    }
 
 }

@@ -3,7 +3,7 @@
 ## What is it?
 The goal of this project is to produce a JSF component that can be used to easily export data from other JSF components (tables, lists, trees, etc.) into a variety of file formats.
 
-This project was born out of frustration with the PrimeFaces dataExporter component. p:dataExporter is really handy... if you only want to export the most boring p:dataTable. And you don't care about internationalization. And you don't need any file formats besides CSV, PDF, XML, and XLS. And you don't care that the XML exporter produces invalid XML. And... well, I think you get the idea.
+This project was born out of frustration with the PrimeFaces dataExporter component. p:dataExporter is really handy... if you only want to export the most boring p:dataTable. And you don't care about internationalization. And you don't need any file formats besides CSV, PDF, XML, XLS and DOC. And you don't care that the XML exporter produces invalid XML. And... well, I think you get the idea.
 
 I finally got fed up with all the problems and limitations. I decided to roll my own, and make the result available to anyone else who's in the same boat. Feedback is welcome, as are pull requests.
 
@@ -51,6 +51,11 @@ Next, you'll need at least one export type module:
 <dependency>
 	<groupId>com.lapis.jsfexporter</groupId>
 	<artifactId>export-type-excel</artifactId>
+	<version>1.0.3.Final</version>
+</dependency>
+<dependency>
+	<groupId>com.lapis.jsfexporter</groupId>
+	<artifactId>export-type-word</artifactId>
 	<version>1.0.3.Final</version>
 </dependency>
 <dependency>

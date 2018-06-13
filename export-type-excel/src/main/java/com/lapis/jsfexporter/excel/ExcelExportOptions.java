@@ -21,33 +21,34 @@ package com.lapis.jsfexporter.excel;
 
 /**
  * Configuration options for Excel export type.
+ *
  * @author Richard
  *
  */
 public class ExcelExportOptions {
 
-	private ExcelFileFormat format;
-	
-	/**
-	 * Constructor for default options:
-	 * <ul>
-	 * <li>Format: XLSX</li>
-	 * </ul>
-	 */
-	public ExcelExportOptions() {
-		this.format = ExcelFileFormat.XLSX;
-	}
+    private ExcelFileFormat format;
 
-	public ExcelExportOptions(ExcelFileFormat format) {
-		this.format = format;
-	}
+    /**
+     * Constructor for default options:
+     * <ul>
+     * <li>Format: XLSX</li>
+     * </ul>
+     */
+    public ExcelExportOptions() {
+        this.format = ExcelFileFormat.XLSX;
+    }
 
-	public ExcelFileFormat getFormat() {
-		return format;
-	}
+    public ExcelExportOptions(ExcelFileFormat format) {
+        this.format = format;
+    }
 
-	public void setFormat(ExcelFileFormat format) {
-		this.format = format;
-	}
-	
+    public ExcelFileFormat getFormat() {
+        return format;
+    }
+
+    public void setFormat(ExcelFileFormat format) {
+        this.format = format;
+    }
+
 }

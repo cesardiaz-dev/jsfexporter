@@ -19,40 +19,43 @@
  */
 package com.lapis.jsfexporter.impl;
 
-import java.util.List;
-
 import com.lapis.jsfexporter.api.FacetType;
 import com.lapis.jsfexporter.api.IExportCell;
 import com.lapis.jsfexporter.api.IExportRow;
+import java.util.List;
 
 public class ExportRowImpl implements IExportRow {
 
-	private List<String> name;
-	private Object parentRowId;
-	private FacetType facetType;
-	private List<IExportCell> cells;
-	
-	public ExportRowImpl(List<String> name, Object parentRowId, FacetType facetType, List<IExportCell> cells) {
-		this.name = name;
-		this.parentRowId = parentRowId;
-		this.facetType = facetType;
-		this.cells = cells;
-	}
+    private final List<String> name;
+    private final Object parentRowId;
+    private final FacetType facetType;
+    private final List<IExportCell> cells;
 
-	public List<String> getName() {
-		return name;
-	}
+    public ExportRowImpl(List<String> name, Object parentRowId, FacetType facetType, List<IExportCell> cells) {
+        this.name = name;
+        this.parentRowId = parentRowId;
+        this.facetType = facetType;
+        this.cells = cells;
+    }
 
-	public Object getParentRowId() {
-		return parentRowId;
-	}
+    @Override
+    public List<String> getName() {
+        return name;
+    }
 
-	public FacetType getFacetType() {
-		return facetType;
-	}
+    @Override
+    public Object getParentRowId() {
+        return parentRowId;
+    }
 
-	public List<IExportCell> getCells() {
-		return cells;
-	}
-	
+    @Override
+    public FacetType getFacetType() {
+        return facetType;
+    }
+
+    @Override
+    public List<IExportCell> getCells() {
+        return cells;
+    }
+
 }

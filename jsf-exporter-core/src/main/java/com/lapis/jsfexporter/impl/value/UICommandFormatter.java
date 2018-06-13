@@ -19,41 +19,40 @@
  */
 package com.lapis.jsfexporter.impl.value;
 
+import com.lapis.jsfexporter.spi.IValueFormatter;
+import com.lapis.jsfexporter.util.ExportUtil;
 import javax.faces.component.UICommand;
 import javax.faces.component.UIComponent;
 import javax.faces.component.ValueHolder;
 import javax.faces.context.FacesContext;
 
-import com.lapis.jsfexporter.spi.IValueFormatter;
-import com.lapis.jsfexporter.util.ExportUtil;
-
 public class UICommandFormatter implements IValueFormatter<UICommand> {
 
-	@Override
-	public Class<UICommand> getSupportedClass() {
-		return UICommand.class;
-	}
+    @Override
+    public Class<UICommand> getSupportedClass() {
+        return UICommand.class;
+    }
 
-	@Override
-	public int getPrecedence() {
-		return 0;
-	}
+    @Override
+    public int getPrecedence() {
+        return 0;
+    }
 
-	@Override
-	public String formatValue(FacesContext context, UICommand component) {
-		// adapted from PrimeFaces exporter
-		Object value = component.getValue();
-		if (value == null) {
-			for (UIComponent child : component.getChildren()) {
-				if (child instanceof ValueHolder) {
-					return ExportUtil.transformComponentsToString(context, child);
-				}
-			}
-			
-			return "";
-		} else {
-			return value.toString();
-		}
-	}
+    @Override
+    public String formatValue(FacesContext context, UICommand component) {
+        // adapted from PrimeFaces exporter
+        Object value = component.getValue();
+        if (value == null) {
+            for (UIComponent child : component.getChildren()) {
+                if (child instanceof ValueHolder) {
+                    return ExportUtil.transformComponentsToString(context, child);
+                }
+            }
+
+            return "";
+        } else {
+            return value.toString();
+        }
+    }
 
 }
