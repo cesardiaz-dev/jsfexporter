@@ -1,0 +1,94 @@
+<!--
+  #%L
+  Lapis JSF Exporter - Test WAR
+  %%
+  Copyright (C) 2013 - 2015 Lapis Software Associates
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  #L%
+-->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:l="http://www.lapis.com/jsf/exporter"
+                template="../template.xhtml">
+    <ui:define name="content">
+        <h:form>
+            <p:commandButton value="Export CSV" ajax="false">
+                <l:dataExporter source="table" fileType="csv" fileName="cars"/>
+            </p:commandButton>
+            <p:commandButton value="Export XML" ajax="false">
+                <l:dataExporter source="table" fileType="xml" fileName="cars"/>
+            </p:commandButton>
+            <p:commandButton value="Export PDF" ajax="false">
+                <l:dataExporter source="table" fileType="pdf" fileName="cars"/>
+            </p:commandButton>
+            <p:commandButton value="Export XLSX" ajax="false">
+                <l:dataExporter source="table" fileType="excel" fileName="cars"/>
+            </p:commandButton>
+            <p:commandButton value="Export DOCX" ajax="false">
+                <l:dataExporter source="table" fileType="word" fileName="cars"/>
+            </p:commandButton>
+
+            <p:dataTable id="table" var="car" value="#{nonLazyTableBean.cars}" editable="true">
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Make (i.e. Manufacturer)" />
+                    </f:facet>
+                    <h:outputText value="#{car.make}" />
+                </p:column>
+                <p:column headerText="Color">
+                    <h:outputText value="#{car.color}" />
+                </p:column>
+                <p:column headerText="Year">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{car.year}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <p:inputText value="#{car.year}">
+                                <f:validateLongRange minimum="1900"/>
+                            </p:inputText>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column headerText="Price">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:panelGroup>
+                                <h:outputText value="$" />
+                                <h:outputText value="#{car.price}" />
+                            </h:panelGroup>
+                        </f:facet>
+                        <f:facet name="input">
+                            <p:inputText value="#{car.price}">
+                                <f:validateLongRange minimum="1"/>
+                            </p:inputText>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column headerText="Image - HTML" style="text-align: center;">
+                    <h:graphicImage library="images" name="image.png" alt="this is image's alt"/>
+                </p:column>
+                <p:column headerText="Image - Primefaces" style="text-align: center;">
+                    <p:graphicImage library="images" name="image2.gif"  alt="this is second image's alt"/>
+                </p:column>
+                <p:column headerText="Actions" exportable="false">
+                    <p:rowEditor/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>
