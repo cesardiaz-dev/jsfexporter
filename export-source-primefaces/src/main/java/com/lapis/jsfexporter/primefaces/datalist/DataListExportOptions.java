@@ -23,34 +23,36 @@ import java.io.Serializable;
 
 /**
  * Configuration options for p:dataList export source.
+ *
  * @author Richard
  *
  */
 public class DataListExportOptions implements Serializable {
-	private static final long serialVersionUID = 1L;
 
-	private DataListExportRange range;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * Constructor for default options:
-	 * <ul>
-	 * <li>Range: ALL</li>
-	 * </ul>
-	 */
-	public DataListExportOptions() {
-		this.range = DataListExportRange.ALL;
-	}
-	
-	public DataListExportOptions(DataListExportRange range) {
-		this.range = range;
-	}
+    private DataListExportRange range;
 
-	public DataListExportRange getRange() {
-		return range;
-	}
+    /**
+     * Constructor for default options:
+     * <ul>
+     * <li>Range: ALL</li>
+     * </ul>
+     */
+    public DataListExportOptions() {
+        this.range = DataListExportRange.ALL;
+    }
 
-	public void setRange(DataListExportRange range) {
-		this.range = range;
-	}
+    public DataListExportOptions(DataListExportRange range) {
+        this.range = range;
+    }
+
+    public DataListExportRange getRange() {
+        return range;
+    }
+
+    public void setRange(DataListExportRange range) {
+        this.range = range;
+    }
 
 }

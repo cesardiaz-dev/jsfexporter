@@ -23,34 +23,36 @@ import java.io.Serializable;
 
 /**
  * Configuration options for p:dataTable export source.
+ *
  * @author Richard
  *
  */
 public class DataTableExportOptions implements Serializable {
-	private static final long serialVersionUID = 1L;
 
-	private DataTableExportRange range;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * Constructor for default options:
-	 * <ul>
-	 * <li>Range: ALL</li>
-	 * </ul>
-	 */
-	public DataTableExportOptions() {
-		this.range = DataTableExportRange.ALL;
-	}
-	
-	public DataTableExportOptions(DataTableExportRange range) {
-		this.range = range;
-	}
+    private DataTableExportRange range;
 
-	public DataTableExportRange getRange() {
-		return range;
-	}
+    /**
+     * Constructor for default options:
+     * <ul>
+     * <li>Range: ALL</li>
+     * </ul>
+     */
+    public DataTableExportOptions() {
+        this.range = DataTableExportRange.ALL;
+    }
 
-	public void setRange(DataTableExportRange range) {
-		this.range = range;
-	}
+    public DataTableExportOptions(DataTableExportRange range) {
+        this.range = range;
+    }
+
+    public DataTableExportRange getRange() {
+        return range;
+    }
+
+    public void setRange(DataTableExportRange range) {
+        this.range = range;
+    }
 
 }
