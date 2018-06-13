@@ -19,69 +19,67 @@
  */
 package com.lapis.jsfexporter.test;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortMeta;
 import org.primefaces.model.SortOrder;
 
 @ManagedBean
 @ViewScoped
-public class LazyTableBean {
+public class LazyTableBean implements Serializable {
 
-	private static final String[] COLORS = new String[]
-			{"Black", "White", "Green", "Red", "Blue", "Orange", "Silver", "Yellow", "Brown", "Maroon"};
-	private static final String[] MAKES = new String[]
-			{"Mercedes", "BMW", "Volvo", "Audi", "Renault", "Opal", "Volkswagen", "Chrysler", "Ferrari", "Ford"};
-	
-	private LazyCarModel model;
-	
-	@PostConstruct
-	protected void init() {
-		model = new LazyCarModel();
-	}
-	
-	public LazyCarModel getModel() {
-		return model;
-	}
+    private static final String[] COLORS = new String[]{"Black", "White", "Green", "Red", "Blue", "Orange", "Silver", "Yellow", "Brown", "Maroon"};
+    private static final String[] MAKES = new String[]{"Mercedes", "BMW", "Volvo", "Audi", "Renault", "Opal", "Volkswagen", "Chrysler", "Ferrari", "Ford"};
 
-	private class LazyCarModel extends LazyDataModel<Car> {
-		private static final long serialVersionUID = 1L;
-		
-		private List<Car> cars;
-		
-		public LazyCarModel() {
-			Random rng = new Random();
-			
-			cars = new ArrayList<Car>();
-			for (int i = 0; i < 50; i++) {
-				cars.add(new Car(MAKES[rng.nextInt(10)], COLORS[rng.nextInt(10)], 1970 + rng.nextInt(43), new BigDecimal(rng.nextInt(100000))));
-			}
-		}
-		
-		@Override
-		public List<Car> load(int first, int pageSize, List<SortMeta> multiSortMeta, Map<String, Object> filters) {
-			return cars.subList(first, Math.min(cars.size(), first + pageSize));
-		}
+    private LazyCarModel model;
 
-		@Override
-		public List<Car> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, Object> filters) {
-			return load(first, pageSize, null, filters);
-		}
+    @PostConstruct
+    protected void init() {
+        model = new LazyCarModel();
+    }
 
-		@Override
-		public int getRowCount() {
-			return cars.size();
-		}
-		
-	}
-	
+    public LazyCarModel getModel() {
+        return model;
+    }
+
+    private class LazyCarModel extends LazyDataModel<Car> {
+
+        private static final long serialVersionUID = 1L;
+
+        private List<Car> cars;
+
+        public LazyCarModel() {
+            Random rng = new Random();
+
+            cars = new ArrayList<Car>();
+            for (int i = 0; i < 50; i++) {
+                cars.add(new Car(MAKES[rng.nextInt(10)], COLORS[rng.nextInt(10)], 1970 + rng.nextInt(43), new BigDecimal(rng.nextInt(100000))));
+            }
+        }
+
+        @Override
+        public List<Car> load(int first, int pageSize, List<SortMeta> multiSortMeta, Map<String, Object> filters) {
+            return cars.subList(first, Math.min(cars.size(), first + pageSize));
+        }
+
+        @Override
+        public List<Car> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, Object> filters) {
+            return load(first, pageSize, null, filters);
+        }
+
+        @Override
+        public int getRowCount() {
+            return cars.size();
+        }
+
+    }
+
 }

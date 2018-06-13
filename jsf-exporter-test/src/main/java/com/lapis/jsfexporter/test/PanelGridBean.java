@@ -19,40 +19,41 @@
  */
 package com.lapis.jsfexporter.test;
 
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 @ManagedBean
 @ViewScoped
-public class PanelGridBean {
+public class PanelGridBean implements Serializable {
 
-	// see http://thedailywtf.com/Articles/What_Is_Truth_0x3f_.aspx
-	public enum TheDailyWTFBoolean {
-		TRUE("True"), FALSE("False"), FILE_NOT_FOUND("FileNotFound");
-		
-		private String label;
-		
-		private TheDailyWTFBoolean(String label) {
-			this.label = label;
-		}
+    // see http://thedailywtf.com/Articles/What_Is_Truth_0x3f_.aspx
+    public enum TheDailyWTFBoolean {
+        TRUE("True"), FALSE("False"), FILE_NOT_FOUND("FileNotFound");
 
-		public String getLabel() {
-			return label;
-		}
-	}
-	
-	private TheDailyWTFBoolean selectedChoice;
-	
-	public TheDailyWTFBoolean getSelectedChoice() {
-		return selectedChoice;
-	}
+        private String label;
 
-	public void setSelectedChoice(TheDailyWTFBoolean selectedChoice) {
-		this.selectedChoice = selectedChoice;
-	}
+        private TheDailyWTFBoolean(String label) {
+            this.label = label;
+        }
 
-	public TheDailyWTFBoolean[] getSelectOneChoices() {
-		return TheDailyWTFBoolean.values();
-	}
-	
+        public String getLabel() {
+            return label;
+        }
+    }
+
+    private TheDailyWTFBoolean selectedChoice;
+
+    public TheDailyWTFBoolean getSelectedChoice() {
+        return selectedChoice;
+    }
+
+    public void setSelectedChoice(TheDailyWTFBoolean selectedChoice) {
+        this.selectedChoice = selectedChoice;
+    }
+
+    public TheDailyWTFBoolean[] getSelectOneChoices() {
+        return TheDailyWTFBoolean.values();
+    }
+
 }

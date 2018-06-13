@@ -23,48 +23,48 @@ import java.math.BigDecimal;
 
 public class Car {
 
-	private String make;
-	private String color;
-	private int year;
-	private BigDecimal price;
-	
-	public Car(String make, String color, int year, BigDecimal price) {
-		this.make = make;
-		this.color = color;
-		this.year = year;
-		this.price = price;
-	}
+    private String make;
+    private String color;
+    private int year;
+    private BigDecimal price;
 
-	public String getMake() {
-		return make;
-	}
+    public Car(String make, String color, int year, BigDecimal price) {
+        this.make = make;
+        this.color = color;
+        this.year = year;
+        this.price = price;
+    }
 
-	public void setMake(String make) {
-		this.make = make;
-	}
+    public String getMake() {
+        return make;
+    }
 
-	public String getColor() {
-		return color;
-	}
+    public void setMake(String make) {
+        this.make = make;
+    }
 
-	public void setColor(String color) {
-		this.color = color;
-	}
+    public String getColor() {
+        return color;
+    }
 
-	public int getYear() {
-		return year;
-	}
+    public void setColor(String color) {
+        this.color = color;
+    }
 
-	public void setYear(int year) {
-		this.year = year;
-	}
+    public int getYear() {
+        return year;
+    }
 
-	public BigDecimal getPrice() {
-		return price;
-	}
+    public void setYear(int year) {
+        this.year = year;
+    }
 
-	public void setPrice(BigDecimal price) {
-		this.price = price;
-	}
-	
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
 }
