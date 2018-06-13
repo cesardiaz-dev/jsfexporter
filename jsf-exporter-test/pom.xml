@@ -58,6 +58,10 @@
         </dependency>
         <dependency>
             <groupId>com.lapis.jsfexporter</groupId>
+            <artifactId>export-type-word</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.lapis.jsfexporter</groupId>
             <artifactId>export-type-pdf</artifactId>
         </dependency>
         <dependency>

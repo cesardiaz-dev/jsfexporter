@@ -38,6 +38,9 @@
             <p:commandButton value="Export XLSX" ajax="false">
                 <l:dataExporter source="list" fileType="excel" fileName="cars"/>
             </p:commandButton>
+            <p:commandButton value="Export DOCX" ajax="false">
+                <l:dataExporter source="list" fileType="word" fileName="cars"/>
+            </p:commandButton>
 
             <p:dataList id="list" var="car" value="#{nonLazyTableBean.cars}" type="definition">
                 <h:outputText value="#{car.make}, #{car.year}" />

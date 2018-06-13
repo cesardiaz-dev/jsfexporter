@@ -39,6 +39,9 @@
             <p:commandButton value="Export XLSX" ajax="false">
                 <l:dataExporter source="table" fileType="excel" fileName="cars"/>
             </p:commandButton>
+            <p:commandButton value="Export DOCX" ajax="false">
+                <l:dataExporter source="table" fileType="word" fileName="cars"/>
+            </p:commandButton>
 
             <rich:dataTable id="table" var="car" value="#{nonLazyTableBean.cars}">
                 <rich:column>

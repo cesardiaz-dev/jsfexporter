@@ -38,6 +38,9 @@
             <p:commandButton value="Export XLSX" ajax="false">
                 <l:dataExporter source="table" fileType="excel" fileName="cars" sourceOptions="#{nonLazyTableBean.PFDTPageOnly}"/>
             </p:commandButton>
+            <p:commandButton value="Export DOCX" ajax="false">
+                <l:dataExporter source="table" fileType="word" fileName="cars" sourceOptions="#{nonLazyTableBean.PFDTPageOnly}"/>
+            </p:commandButton>
 
             <p:dataTable id="table" var="row" value="#{dynamicColumnsTableBean.data}" rows="10" paginator="true">
                 <p:columns var="col" value="#{dynamicColumnsTableBean.columns}" headerText="Number #{col}">

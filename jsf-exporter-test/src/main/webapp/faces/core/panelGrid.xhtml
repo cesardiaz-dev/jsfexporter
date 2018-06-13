@@ -39,6 +39,9 @@
             <p:commandButton value="Export XLSX" ajax="false">
                 <l:dataExporter source="grid" fileType="excel" fileName="grid"/>
             </p:commandButton>
+            <p:commandButton value="Export DOCX" ajax="false">
+                <l:dataExporter source="grid" fileType="word" fileName="grid"/>
+            </p:commandButton>
 
             <h:panelGrid id="grid" columns="3">
                 <h:commandLink value="h:commandLink with no children" />

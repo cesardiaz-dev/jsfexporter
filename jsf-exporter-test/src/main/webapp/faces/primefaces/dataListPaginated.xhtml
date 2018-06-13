@@ -37,6 +37,9 @@
             <p:commandButton value="Export XLSX" ajax="false">
                 <l:dataExporter source="list" fileType="excel" fileName="cars" sourceOptions="#{nonLazyTableBean.PFDLPageOnly}"/>
             </p:commandButton>
+            <p:commandButton value="Export DOCX" ajax="false">
+                <l:dataExporter source="list" fileType="word" fileName="cars" sourceOptions="#{nonLazyTableBean.PFDLPageOnly}"/>
+            </p:commandButton>
 
             <p:dataList id="list" var="car" value="#{nonLazyTableBean.cars}" rows="5" paginator="true">
                 <h:outputText value="#{car.make}, #{car.year}" />
