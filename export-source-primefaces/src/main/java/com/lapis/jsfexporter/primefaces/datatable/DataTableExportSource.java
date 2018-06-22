@@ -128,7 +128,10 @@ public class DataTableExportSource implements IExportSource<DataTable, DataTable
             int rowCount = columnGroup.getChildCount();
             int colCount = 0;
             for (int i = 0; i < columnGroup.getChildren().get(0).getChildCount(); i++) {
-                colCount += ((UIColumn) columnGroup.getChildren().get(0).getChildren().get(i)).getColspan();
+                UIColumn column = (UIColumn) columnGroup.getChildren().get(0).getChildren().get(i);
+                if (column.isRendered() && column.isExportable()) {
+                    colCount += column.getColspan();
+                }
             }
 
             for (int i = 0; i < colCount; i++) {
@@ -145,6 +148,9 @@ public class DataTableExportSource implements IExportSource<DataTable, DataTable
 
                 for (UIComponent rowChild : row.getChildren()) {
                     UIColumn rowColumn = (UIColumn) rowChild;
+                    if (!rowColumn.isRendered() || !rowColumn.isExportable()) {
+                        continue;
+                    }
                     String facetText = PrimeFacesUtil.getColumnFacetText(rowColumn, facetType, context);
 
                     while (columnNames.get(columnIndex).get(rowIndex) != null) {
